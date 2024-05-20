@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<script>
+var saldo = 150.00// Float
+
+var nome =prompt(`qual seu nome`)
+inicio()
+function inicio(){
+   
+alert(`Olá ${nome} é um prazer ter você por aqui!`)
+
+var opcao = parseInt(prompt(`Escolha uma opção:\n
+1. Ver Saldo\n
+2. extrato\n
+3. Fazer saque\n
+4. deposito\n
+5. transferencia\n
+6. Sair\n
+`))
+
+alert(`A opção selecionada foi:${opcao}\n`)
+
+var com = parseInt(prompt(`tem certeza disso?\n
+digite 1 para sim\n
+digite 2 para nao`))
+
+if(com==2){
+inicio()
+}
+
+///////////////////////////////////////////////////////////////////////
+
+else if (opcao == 1) {
+
+verSaldo()
+
+} else if (opcao == 2) {
+
+extrato()
+
+} else if (opcao == 3) {
+
+fazerSaque()
+
+} else if(opcao == 4) {
+
+fazerDeposito()
+
+}else if(opcao == 5) {
+
+transferencia()
+
+}else if(opcao == 6) {
+
+sair()
+
+}
+
+else{
+
+erro()
+
+}o
+}
+function verSaldo(){
+
+    var senha= parseInt(prompt(`insira sua senha`))
+
+if(senha!=3589){
+alert (`senha incorreta`)
+verSaldo()
+}
+
+alert(`Seu saldo atual é: , ${saldo}, \n`)
+
+inicio()
+
+}
+
+function fazerDeposito() {
+
+    var senha= parseInt(prompt(`insira sua senha`))
+
+if(senha!=3589){
+alert (`senha incorreta`)
+fazerDeposito()
+}
+
+var deposito = parseInt(prompt("Qual o valor para depósito? ")) 
+
+if (deposito <= 0){
+
+    alert("Por favor, informe um número válido.\n")
+
+    fazerDeposito()
+
+} else {
+
+    saldo = saldo + deposito
+
+    verSaldo()
+
+}
+
+}
+
+function fazerSaque(){
+
+    var senha= parseInt(prompt(`insira sua senha`))
+
+if(senha!=3589){
+alert (`senha incorreta`)
+fazerSaque()
+}
+
+var saque=parseInt(prompt("Qual o valor para saque? ")) 
+
+
+if (saque <= 0 || saque > saldo){
+
+    alert("Operação não autorizada.\n")
+
+    fazerSaque()
+
+}
+
+else {
+
+    saldo = saldo - saque
+
+    verSaldo()
+
+}
+
+}
+
+function transferencia(){
+
+    var senha= parseInt(prompt(`insira sua senha`))
+
+if(senha!=3589){
+alert (`senha incorreta`)
+transferencia()
+}
+
+var trans=parseInt(prompt("Qual o valor para a transferencia? ")) 
+
+
+if (trans <= 0 || trans > saldo || trans!=Number){
+
+    alert("Operação não autorizada.\n")
+
+    fazerSaque()
+
+}
+
+else {
+
+    saldo = saldo - trans
+
+    verSaldo()
+}
+
+}
+
+function extrato(){
+alert("voce possui 2 compras realizadas")
+inicio()
+}
+
+function erro() {
+
+alert("Opção Inválida")
+
+inicio()
+
+}
+
+function sair(){
+
+alert("Programa encerrado")
+document.write(`agradecendo por utilizar os serviços do banco: ${nome}, foi um prazer ter você por aqui!`)
+}
+
+
+
+</script>
+
+</body>
+</html>
